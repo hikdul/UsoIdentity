@@ -19,10 +19,14 @@ namespace MyLoginWhitJWT.Controllers.API
         [HttpGet]
         public string GET()
         {
-            return "Esta es la clave secreta";
+            if (User.IsInRole("Admin"))
+                return User.Identity.Name + " Esta Si Es La Clave Secreta: ESTUDIA MUCHO CARAJO";
+            else
+                return "Esta es la clave secreta";
         }
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles ="Admin")]
 
-        [HttpGet("id")]
+        [HttpGet("log/{id}")]
         public string GETById(int id)
         {
                 

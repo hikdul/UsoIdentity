@@ -81,6 +81,10 @@ namespace MyLoginWhitJWT.Controllers
             {
                 var usuario = await _userManager.FindByEmailAsync(userInfo.Email);
                 var roles = await _userManager.GetRolesAsync(usuario);
+                
+                if (roles.Count < 1 || roles == null)
+                    roles = new List<string>();
+
                 return new UserToken(userInfo, roles,_configuration);
             }
             else
