@@ -1,0 +1,37 @@
+﻿
+@using MyLoginWhitJWT.DataTransferObjects;
+@model UserLogin
+
+@{
+    ViewData["Title"] = "login";
+    //ViewBag.token
+}
+
+<h1>login</h1>
+ 
+
+
+
+<form asp-action="Logear">
+
+    <div class="form-group">
+
+        <label asp-for="@Model.Email" class="form-control"></label>
+        <input asp-for="@Model.Email" class="form-control" />
+
+    </div>
+
+
+
+    <div class="form-group">
+
+        <label asp-for="@Model.Password" class="form-control"></label>
+        <input type="password" asp-for="@Model.Password" class="form-control" />
+
+    </div>
+
+    <input type="submit" value="Ingresar" class="btn btn-success" />
+
+</form>
+
+ 
